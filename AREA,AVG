@@ -1,0 +1,19 @@
+//AREA
+#include <stdio.h>
+int main() {
+    int length=5;
+    int width=6;
+    int area=length*width;
+    printf("%d",area);
+    return 0;
+}
+
+//AVERAGE
+#include <stdio.h>
+int main() {
+    float tamil=90.2,english=83.4,maths=99.5,science=98.5,social=85.2;
+    float sum=tamil+english+maths+science+social;
+    float avg=sum/5;
+    printf("%.2f",avg);
+    return 0;
+}
