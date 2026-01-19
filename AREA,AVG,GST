@@ -17,3 +17,13 @@ int main() {
     printf("%.2f",avg);
     return 0;
 }
+
+\\GST
+#include <stdio.h>
+int main() {
+    int unit=5;
+    float cp=10;
+    float gst=cp*0.18;
+    printf("Selling price: %.2f",unit*(cp+gst));
+    return 0;
+}
