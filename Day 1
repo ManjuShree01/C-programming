@@ -27,3 +27,21 @@ int main() {
     printf("Selling price: %.2f",unit*(cp+gst));
     return 0;
 }
+
+//Bank tranaction
+#include <stdio.h>
+int main() {
+    float balance=1000000;
+    float transaction=50000;
+    if(transaction<balance)
+    {
+        printf("Transaction successful!");
+        balance-=transaction;
+        printf("\nCurrent balance:%.2f",balance);
+    }
+    else
+    {
+        printf("Insufficient balance!");
+    }
+    return 0;
+}
