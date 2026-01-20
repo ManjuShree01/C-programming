@@ -1,0 +1,19 @@
+//Age average
+#include <stdio.h>
+int main()
+{
+    int n,sum=0;
+    float avg;
+    printf("Enter the no. of persons:\n");
+    scanf("%d",&n);
+    int age[n];
+    printf("Enter the age:\n");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&age[i]);
+        sum+=age[i];
+    }
+    avg=(float)sum/n;
+    printf("The average age is %.1f",avg);
+    return 0;
+}
