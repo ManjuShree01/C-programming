@@ -1,4 +1,4 @@
-\\Selecting language
+\\Customer care
 #include <stdio.h>
 int main() {
   printf("Enter no. of the language to be chosen:\n1.Tamil\n2.English\n3.Hindi\n4.Telugu\n");
