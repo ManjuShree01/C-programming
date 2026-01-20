@@ -62,3 +62,21 @@ int main() {
   printf("Your card is blocked");
   return 0;
 }
+
+//Admin
+#include <stdio.h>
+int main()
+{
+    int in,admin;
+    printf("Enter the 1 and 0 for login and admin respectively.");
+    scanf("%d\n%d\n",&in,&admin);
+    if((in==1)&&(admin==0))
+    {
+        printf("You've logged in as a admin.");
+    }
+    else if((in==1)&&(admin!=0))
+        printf("You've logged in.");
+    else
+        printf("Log in failed!");
+    return 0;
+}
