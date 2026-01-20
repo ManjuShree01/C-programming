@@ -1,0 +1,25 @@
+\\Selecting language
+#include <stdio.h>
+int main() {
+  printf("Enter no. of the language to be chosen:\n1.Tamil\n2.English\n3.Hindi\n4.Telugu\n");
+  int num;
+  scanf("%d",&num);
+  switch(num)
+  {
+      case 1:
+      printf("You've chosen Tamil.");
+      break;
+      case 2:
+      printf("You've chosen English.");
+      break;
+      case 3:
+      printf("You've chosen Hindi.");
+      break;
+      case 4:
+      printf("You've chosen Telugu.");
+      break;
+      default:
+      printf("Invalid choice.");
+  }
+    return 0;
+}
