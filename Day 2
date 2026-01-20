@@ -1,4 +1,4 @@
-//Age average
+//Age
 #include <stdio.h>
 int main()
 {
@@ -13,7 +13,24 @@ int main()
         scanf("%d",&age[i]);
         sum+=age[i];
     }
-    avg=(float)sum/n;
-    printf("The average age is %.1f",avg);
+    avg=sum/n;
+    int small=age[0],big=age[0];
+    for(int i=0;i<n;i++)
+    {
+        if(age[i]>big)
+        {
+            big=age[i];
+        }
+    }
+     for(int i=0;i<n;i++)
+    {
+        if(age[i]<small)
+        {
+            small=age[i];
+        }
+    }
+    printf("The average age is %.2f.\n",avg);
+    printf("The smallest number is %d.\n",small);
+    printf("The largest number is %d.",big);
     return 0;
 }
