@@ -43,6 +43,7 @@ int check()
     scanf("%d",&user);
     if(pin==user)
     {
+        amount();
       if(bal>amnt)
       {
           bal-=amnt;
@@ -60,7 +61,6 @@ int check()
 }
 int main()
 {
-    amount();
     check();
     return 0;
 }
