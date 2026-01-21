@@ -64,3 +64,17 @@ int main()
     check();
     return 0;
 }
+
+
+\\Area
+#include <stdio.h>
+#include <math.h>
+int main() 
+{
+    float area,sl;
+    printf("Enter the area of the plot:\n");
+    scanf("%f",&area);
+    sl=sqrt(area);
+    printf("The side length of the plot is %.2f",sl);
+    return 0;
+}
