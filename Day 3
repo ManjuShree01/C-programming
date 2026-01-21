@@ -14,3 +14,53 @@ int main()
     calculate(10,5);
     return 0;
 }
+
+
+\\ATM
+#include <stdio.h>
+int pin=1445;
+float bal=500000;
+int user;
+int attempt=3;
+float amnt;
+int i=3;
+int amount()
+{
+    printf("Enter the amount to withdraw:\n");
+    scanf("%f",&amnt);
+    if(bal<amnt)
+    {
+       printf("Insufficient balance!\nYour current balance is %f",bal);
+          return 0;
+    }
+    return amnt;
+}
+int check()
+{
+    while(attempt>0)
+    {
+    printf("You only have %d times to enter your pin number.\nEnter your pin number:\n",i--);
+    scanf("%d",&user);
+    if(pin==user)
+    {
+      if(bal>amnt)
+      {
+          bal-=amnt;
+          printf("Withdrawal successful!\nYour current balance is %.2f",bal);
+          return 0;
+      }
+    }
+    else
+    {
+      printf("Pin is wrong.");
+      attempt--;
+    }
+    }
+    printf("Your card is blocked");
+}
+int main()
+{
+    amount();
+    check();
+    return 0;
+}
