@@ -1,0 +1,16 @@
+//Calculation
+#include <stdio.h>
+void calculate(int a,int b)
+{
+    int ad=a+b;int sub=a-b;int mul=a*b;int div=a/b;int mod=a%b;
+    printf("Addition : %d\n",ad);
+    printf("Subtraction : %d\n",sub);
+    printf("Multiplication : %d\n",mul);
+    printf("Division : %d\n",div);
+    printf("Modulus : %d\n",mod);
+}
+int main() 
+{
+    calculate(10,5);
+    return 0;
+}
