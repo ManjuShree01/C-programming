@@ -97,3 +97,20 @@ int main()
     printf("The factorial of %d is %d.",num,factorial(num));
     return 0;
 }
+
+
+//Bank
+#include <stdio.h>
+#include <math.h>
+int main() 
+{
+    float prncpl,final;
+    int rate,years;
+    printf("Enter the principal amount:\n");
+    scanf("%f",&prncpl);
+    printf("Enter the rate power and years:\n");
+    scanf("%d %d",&rate,&years);
+    final=prncpl*pow((rate+1),years);
+    printf("The final amount is %d.",final);
+    return 0;
+}
