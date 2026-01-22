@@ -110,7 +110,7 @@ int main()
     scanf("%f",&prncpl);
     printf("Enter the rate power and years:\n");
     scanf("%d %d",&rate,&years);
-    final=prncpl*pow((rate+1),years);
+    final=prncpl*pow((rate/100+1),years);
     printf("The final amount is %d.",final);
     return 0;
 }
