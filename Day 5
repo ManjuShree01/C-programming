@@ -135,3 +135,29 @@ int main() {
    printf("Memory is deleted successfully.");
    return 0;
 }
+
+//Emp ID
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+   int n;
+   printf("Enter the number of the employees:\n");
+   scanf("%d",&n);
+   int *empid=(int *)calloc(n,sizeof(int));
+   for(int i=0;i<n;i++)
+   {
+       printf("Employee ID %d is %d.\n",i+1,empid[i]);
+   }
+   printf("Enter the employee ID of the employees:\n");
+   for(int i=0;i<n;i++)
+   {
+       scanf("%d",&empid[i]);
+   }
+   for(int i=0;i<n;i++)
+   {
+       printf("Employee ID %d is %d.\n",i+1,empid[i]);
+   }
+   free(empid);
+   printf("Memory is deleted successfully.");
+   return 0;
+}
