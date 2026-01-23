@@ -122,6 +122,14 @@ int main() {
    printf("Enter the number of the subjects:\n");
    scanf("%d",&sub);
    int *ad=(int *)malloc(sub*sizeof(int));
+   if(ad==NULL)
+    {
+        printf("Memory is not allocated.\n");
+        return 0;
+    }
+    else{
+        printf("Memory is successfully allocated and the allocated memory is %d.\n",n);
+    }
    printf("Enter the marks of the students:\n");
    for(int i=0;i<sub;i++)
    {
@@ -140,10 +148,18 @@ int main() {
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-   int n;
+   int n,nw;
    printf("Enter the number of the employees:\n");
    scanf("%d",&n);
    int *empid=(int *)calloc(n,sizeof(int));
+   if(empid==NULL)
+    {
+        printf("Memory is not allocated.\n");
+        return 0;
+    }
+    else{
+        printf("Memory is successfully allocated and the allocated memory is %d.\n",n);
+    }
    for(int i=0;i<n;i++)
    {
        printf("Employee ID %d is %d.\n",i+1,empid[i]);
@@ -154,6 +170,26 @@ int main() {
        scanf("%d",&empid[i]);
    }
    for(int i=0;i<n;i++)
+   {
+       printf("Employee ID %d is %d.\n",i+1,empid[i]);
+   }
+   printf("Enter the number of the employees:\n");
+   scanf("%d",&nw);
+   empid=(int *)realloc(empid,nw*sizeof(int));
+   if(empid==NULL)
+    {
+        printf("Memory is not allocated.\n");
+        return 0;
+    }
+    else{
+        printf("Memory is successfully allocated and the allocated memory is %d.\n",n);
+    }
+   printf("Enter the employee ID of the new employees:\n");
+   for(int i=n;i<nw;i++)
+   {
+       scanf("%d",&empid[i]);
+   }
+   for(int i=0;i<nw;i++)
    {
        printf("Employee ID %d is %d.\n",i+1,empid[i]);
    }
