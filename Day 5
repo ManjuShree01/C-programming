@@ -114,3 +114,24 @@ int main() {
     printf("Memory is deleted successfully");
     return 0;
 }
+
+//Student mark
+#include <stdlib.h>
+int main() {
+   int sub;
+   printf("Enter the number of the subjects:\n");
+   scanf("%d",&sub);
+   int *ad=(int *)malloc(sub*sizeof(int));
+   printf("Enter the marks of the students:\n");
+   for(int i=0;i<sub;i++)
+   {
+       scanf("%d",&ad[i]);
+   }
+   for(int i=0;i<sub;i++)
+   {
+       printf("Mark of the subject %d is %d.\n",i+1,ad[i]);
+   }
+   free(ad);
+   printf("Memory is deleted successfully.");
+   return 0;
+}
