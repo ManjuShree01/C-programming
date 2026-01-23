@@ -61,3 +61,56 @@ int main() {
     printf("Memory is deleted successfully");
     return 0;
 }
+
+//realloc
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    int n,nw,i,*array,sum=0;
+    //get length
+    printf("Enter the number of elements:\n");
+    scanf("%d",&n);
+    //memory allocation
+    array=(int *)malloc(n*sizeof(int));
+    //validation
+    if(array==NULL)
+    {
+        printf("Memory is not allocated.\n");
+        return 0;
+    }
+    else{
+        printf("Memory is successfully allocated and the allocated memory is %d.\n",n);
+    }
+    printf("Enter %d numbers by adding a gap for each numbers.\n",n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&array[i]);
+        sum+=array[i];
+    }
+    printf("The sum of all the element is %d.\n",sum);
+    //new allocation
+    printf("Enter the new number of elements:\n");
+    scanf("%d",&nw);
+    //memory allocation
+    array=(int *)realloc(array,nw*sizeof(int));
+    //validation
+    if(array==NULL)
+    {
+        printf("Memory is not allocated.\n");
+        return 0;
+    }
+    else{
+        printf("Memory is successfully allocated and the allocated memory is %d.\n",nw);
+    }
+    printf("Enter %d numbers by adding a gap for each numbers.\n",n);
+    for(i=n;i<nw;i++)
+    {
+        scanf("%d",&array[i]);
+        sum+=array[i];
+    }
+    printf("The sum of all the element is %d.\n",sum);
+    //Deallocating the memory
+    free(array);
+    printf("Memory is deleted successfully");
+    return 0;
+}
