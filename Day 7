@@ -66,3 +66,21 @@ int main() {
     printf("Recharge Amount : %.2f\n",cus.amnt);
     return 0;
 }
+
+//ptr
+#include <stdio.h>
+struct student
+{
+    char name[20];
+    int regno;
+};
+int main() {
+    // Write C code here
+struct student std1={"arun",2};
+struct student *point=&std1;
+printf("%s\n",point->name);
+printf("%p\n",point->name);
+printf("%d\n",point->regno);
+printf("%p\n",point->regno);
+    return 0;
+}
