@@ -84,3 +84,23 @@ printf("%d\n",point->regno);
 printf("%p\n",point->regno);
     return 0;
 }
+
+//Address management
+#include <stdio.h>
+struct address
+{
+    char city[20];
+    int pincode;
+}a={"Greece",12345};
+struct student
+{
+    int id;
+    char name[10];
+    struct address ad;
+};
+int main() {
+    struct student s1={1,"Ram",a};
+    struct student  *p=&s1;
+    printf("Student Name : %s\nID : %d\nAddress : %s\n%d",p->name,p->id,p->ad.city,p->ad.pincode);
+    return 0;
+}
