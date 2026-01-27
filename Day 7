@@ -1,0 +1,68 @@
+//Student mark
+#include <stdio.h>
+struct student
+{
+    int roll;
+    char name[10];
+    int mark[5];
+}s1;
+int main() {
+    printf("Enter the roll no.:\n");
+    scanf("%d",&s1.roll);
+    printf("Enter the name:\n");
+    scanf("%s",s1.name);
+    printf("Enter 5 subject marks:\n");
+    for(int i=0;i<5;i++)
+    {
+        scanf("%d",&s1.mark[i]);
+    }
+    printf("\nRoll no. : %d",s1.roll);
+    printf("\nName : %s",s1.name);
+    for(int i=0;i<5;i++)
+    {
+        printf("\nSubject %d : %d",i+1,s1.mark[i]);
+    }
+    return 0;
+}
+
+//Employee details
+#include <stdio.h>
+struct employee
+{
+    int id;
+    float salary;
+}emp[3];
+int main() {
+    for(int i=0;i<3;i++)
+    {
+        printf("Enter the Employee ID %d :\n",i+1);
+        scanf("%d",&emp[i].id);
+        printf("Enter the salary:\n");
+        scanf("%f",&emp[i].salary);
+    }
+    printf("\n-----------------Employee Details-----------------\n");
+    for(int i=0;i<3;i++)
+    {
+        printf("Employee %d\nEmployee ID : %d\n",i+1,emp[i].id);
+        printf("Salary : %.2f\n",emp[i].salary);
+    }
+    return 0;
+}
+
+//Recaharge 
+#include <stdio.h>
+struct recharge
+{
+    int num;
+    float amnt;
+}cus;
+int main() {
+    printf("Enter the Mobile No. :\n");
+    scanf("%d",&cus.num);
+    printf("Enter the recharge amount:\n");
+    scanf("%f",&cus.amnt);
+    printf("\n-----------------Recharge Details-----------------\n");
+    printf("Mobile Number : %d\n",cus.num);
+    printf("Recharge Amount : %.2f\n",cus.amnt);
+    return 0;
+}
