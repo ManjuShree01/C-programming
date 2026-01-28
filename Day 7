@@ -104,3 +104,55 @@ int main() {
     printf("Student Name : %s\nID : %d\nAddress : %s\n%d",p->name,p->id,p->ad.city,p->ad.pincode);
     return 0;
 }
+
+//Employee details
+#include <stdio.h>
+struct dept
+{
+    char dptname[10];
+    int dptid;
+};
+struct employee
+{
+    int empid;
+    char empname[10];
+    struct dept dp;
+};
+int main() {
+    struct dept d={"ECE",101};
+    struct employee emp={10,"Ram",d};
+    struct employee *p=&emp;
+    printf("Employee ID:%d\nEmployee name: %d\nDept name: %s\nDept ID: %d\n",p->empid,p->empname,p->dp.dptname,p->dp.dptid);
+    return 0;
+}
+
+//Product and supplier
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+struct supplier
+{
+    char supname[10];
+    char loc[10];
+};
+struct product
+{
+    int id;
+    char name[10];
+    int price;
+    struct supplier sp;
+};
+int main() {
+    struct supplier s={"Ram","Chennai"};
+    struct product pr={101,"Pen",10,s};
+    struct product *p=(struct product*)malloc(sizeof(struct product));
+    if(p==NULL)
+    {
+        printf("Memory is not allocated.");
+        return 1;
+    }
+    *p=pr;
+    printf("Product ID:%d\nProduct name: %d\nPrice: %d\nSupplier name: %s\nSupplier location: %s\n",p->id,p->name,p->price,p->sp.supname,p->sp.loc);
+    free(p);
+    return 0;
+}
