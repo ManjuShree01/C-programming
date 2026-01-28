@@ -1,0 +1,54 @@
+//Sum of array elements
+#include <stdio.h>
+int main() {
+    int n, sum = 0;
+    printf("Enter n: ");
+    scanf("%d", &n);
+    int arr[n];
+    int *ptr = arr;
+    for (int i = 0; i < n; i++) {
+        scanf("%d", (ptr + i));
+    }
+    for (int i = 0; i < n; i++) {
+        sum += *ptr;
+        ptr++;
+    }
+    printf("Sum: %d\n", sum);
+    return 0;
+}
+
+//Grocery Shop Bill
+#include <stdio.h>
+int main() {
+    int n;
+    float total = 0.0;
+    printf("Enter number of items: ");
+    scanf("%d", &n);
+    float prices[n];
+    float *ptr = prices;
+    for (int i = 0; i < n; i++) {
+        scanf("%f", (ptr + i));
+    }
+    for (int i = 0; i < n; i++) {
+        total += *ptr;
+        ptr++;
+    }
+    printf("Total Bill: %.2f\n", total);
+    return 0;
+}
+
+//Employee Salary System
+#include <stdio.h>
+#include <stdlib.h>
+void allocateSalary(float **ptr) {
+    *ptr = (float *)malloc(sizeof(float));
+    printf("Enter salary: ");
+    scanf("%f", *ptr);
+}
+int main() {
+    float *salaryPtr = NULL;
+    allocateSalary(&salaryPtr);
+    printf("Salary: %.2f\n", *salaryPtr);
+    free(salaryPtr);
+    return 0;
+}
