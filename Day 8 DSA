@@ -89,7 +89,7 @@ int main()
 struct cart
 {
     int item;
-    struct cntct *link;
+    struct cart *link;
 };
 int main()
 {
@@ -97,15 +97,46 @@ int main()
     struct cart *c2=(struct cart*)malloc(sizeof(struct cart));
     struct cart *c3=(struct cart*)malloc(sizeof(struct cart));
     scanf("%d %d %d",&c1->item,&c2->item,&c3->item);
-    c1->link=c2;
-    c2->link=c3;
-    c3->link=NULL;
-    struct cart *head=c1;
+    c1->link=NULL;
+    c2->link=c1;
+    c3->link=c2;
+    struct cart *head=c3;
     while(head!=NULL)
     {
         printf("%d -> ",head->item);
         head=head->link;
     }
     printf("NULL");
+    return 0;
+}
+
+//Bank customers
+#include <stdio.h>
+#include <stdlib.h>
+struct bank
+{
+    int acc;
+    long int num;
+    struct bank *link;
+};
+int main()
+{
+    struct bank *c[3];
+    for(int i=0;i<3;i++)
+    {
+        c[i]=(struct bank*)malloc(sizeof(struct bank));
+        printf("AccNo :",scanf("%d",&c[i]->acc),printf("Phone : "),scanf("%ld",&c[i]->num));
+    }
+    c[0]->link=c[1];
+    c[1]->link=c[2];
+    c[2]->link=NULL;
+    struct bank *head=c[0];
+    while(head!=NULL)
+    {
+        printf("%d - %ld -> ",head->acc,head->num);
+        head=head->link;
+    }
+    printf("NULL");
+    for(int i=0;i<3;i++)free(c[i]);
     return 0;
 }
