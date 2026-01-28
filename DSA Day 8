@@ -30,3 +30,82 @@ int main()
     printf("NULL");
     return 0;
 }
+
+//Dialed no.
+#include <stdio.h>
+#include <stdlib.h>
+struct cntct
+{
+    long int num;
+    struct cntct *link;
+};
+int main()
+{
+    struct cntct *c1=(struct cntct*)malloc(sizeof(struct cntct));
+    struct cntct *c2=(struct cntct*)malloc(sizeof(struct cntct));
+    struct cntct *c3=(struct cntct*)malloc(sizeof(struct cntct));
+    scanf("%d %d %d",&c1->num,&c2->num,&c3->num);
+    c1->link=c2;
+    c2->link=c3;
+    c3->link=NULL;
+    struct cntct *head=c1;
+    while(head!=NULL)
+    {
+        printf("%ld-->",head->num);
+        head=head->link;
+    }
+    printf("NULL");
+    return 0;
+}
+
+//Roll no
+#include <stdio.h>
+#include <stdlib.h>
+struct stud
+{
+    int roll;
+    struct stud *link;
+};
+int main()
+{
+    struct stud *s1=(struct stud*)malloc(sizeof(struct stud));
+    struct stud *s2=(struct stud*)malloc(sizeof(struct stud));
+    scanf("%d %d",&s1->roll,&s2->roll);
+    s1->link=s2;
+    s2->link=NULL;
+    struct stud *head=s1;
+    while(head!=NULL)
+    {
+        printf("Roll %d -> ",head->roll);
+        head=head->link;
+    }
+    printf("NULL");
+    return 0;
+}
+
+//Cart
+#include <stdio.h>
+#include <stdlib.h>
+struct cart
+{
+    int item;
+    struct cntct *link;
+};
+int main()
+{
+    struct cart *c1=(struct cart*)malloc(sizeof(struct cart));
+    struct cart *c2=(struct cart*)malloc(sizeof(struct cart));
+    struct cart *c3=(struct cart*)malloc(sizeof(struct cart));
+    scanf("%d %d %d",&c1->item,&c2->item,&c3->item);
+    c1->link=c2;
+    c2->link=c3;
+    c3->link=NULL;
+    struct cart *head=c1;
+    while(head!=NULL)
+    {
+        printf("%d -> ",head->item);
+        head=head->link;
+    }
+    printf("NULL");
+    return 0;
+}
