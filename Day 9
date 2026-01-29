@@ -1,1 +1,36 @@
-
+//Storing at beginning
+#include <stdio.h>
+#include <stdlib.h>
+struct cntct
+{
+    long int num;
+    struct cntct *link;
+};
+int main()
+{
+    struct cntct *head=NULL;
+    struct cntct *c1=(struct cntct*)malloc(sizeof(struct cntct));
+    struct cntct *c2=(struct cntct*)malloc(sizeof(struct cntct));
+    struct cntct *c3=(struct cntct*)malloc(sizeof(struct cntct));
+    struct cntct *c4=(struct cntct*)malloc(sizeof(struct cntct));
+    c1->num=9865326598;
+    c2->num=6598326598;
+    c3->num=6598743197;
+    c4->num=8956431526;
+    c1->link=head;
+    head=c1;
+    c2->link=head;
+    head=c2;
+    c3->link=head;
+    head=c3;
+    c4->link=head;
+    head=c4;
+    printf("Contact:\n");
+    while(head!=NULL)
+    {
+        printf("%ld-->",head->num);
+        head=head->link;
+    }
+    printf("NULL");
+    return 0;
+}
