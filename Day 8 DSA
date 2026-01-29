@@ -140,3 +140,76 @@ int main()
     for(int i=0;i<3;i++)free(c[i]);
     return 0;
 }
+
+//Student
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct student {
+    int roll;
+    char name[20];
+    char dept[20];
+    struct student *link;
+};
+int main() {
+    struct student *s[2];
+    for(int i = 0; i < 2; i++) {
+        s[i] = (struct student*)malloc(sizeof(struct student));
+    }
+    s[0]->roll = 1;
+    strcpy(s[0]->name, "Arun");
+    strcpy(s[0]->dept, "CSE");
+    s[1]->roll = 2;
+    strcpy(s[1]->name, "Meena");
+    strcpy(s[1]->dept, "IT");
+    s[0]->link = s[1];
+    s[1]->link = NULL;
+    struct student *head = s[0];
+    while(head != NULL) {
+        printf("%d %s %s", head->roll, head->name, head->dept);
+        if(head->link != NULL) printf(" -> ");
+        head = head->link;
+    }
+    printf(" -> NULL\n");
+    for(int i = 0; i < 2; i++) {
+        free(s[i]);
+    }
+    return 0;
+}
+
+//Order
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct order
+{
+    int id;
+    char name[20];
+    int price;
+    char status[20];
+    struct order *next;
+};
+int main()
+{
+    struct order *o[2];
+    for(int i=0; i<2; i++)
+    {
+        o[i] = (struct order*)malloc(sizeof(struct order));
+        printf("OrderID: ", scanf("%d", &o[i]->id));
+        printf("Product: ", scanf("%s", o[i]->name));
+        printf("Price: ", scanf("%d", &o[i]->price));
+        printf("Status: ", scanf("%s", o[i]->status));
+    }
+    o[0]->next = o[1];
+    o[1]->next = NULL;
+    struct order *head = o[0];
+    while(head != NULL)
+    {
+        printf("%d %s %d %s", head->id, head->name, head->price, head->status);
+        if(head->next != NULL) printf(" -> ");
+        head = head->next;
+    }
+    printf(" -> NULL");
+    for(int i=0; i<2; i++) free(o[i]);
+    return 0;
+}
