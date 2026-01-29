@@ -116,7 +116,7 @@ int main()
     return 0;
 }
 
-//Beginning
+//Inserting at middle
 #include <stdio.h>
 #include <stdlib.h>
 struct contact
