@@ -76,3 +76,44 @@ int main()
     free(ct3);
     return 0;
 }
+
+//Beginning
+#include <stdio.h>
+#include <stdlib.h>
+struct insertbeginning
+{
+    int num;
+    struct insertbeginning *next;
+};
+int main()
+{
+    struct insertbeginning *head=NULL;
+    struct insertbeginning *n1=(struct insertbeginning*)malloc(sizeof(struct insertbeginning));
+    struct insertbeginning *n2=(struct insertbeginning*)malloc(sizeof(struct insertbeginning));
+    struct insertbeginning *n3=(struct insertbeginning*)malloc(sizeof(struct insertbeginning));
+    struct insertbeginning *n4=(struct insertbeginning*)malloc(sizeof(struct insertbeginning));
+    n3->num=10;
+    n2->num=20;
+    n1->num=30;
+    n1->next=head;
+    head=n1;
+    n2->next=head;
+    head=n2;
+    n3->next=head;
+    head=n3;
+    n4->num=5;
+    n4->next=head;
+    head=n4;
+    while(head!=NULL)
+    {
+        printf("%d",head->num);
+        if(head->next!=NULL)
+        {
+            printf("->");
+        }
+        head=head->next;
+    }
+    return 0;
+}
+
+//Ending
