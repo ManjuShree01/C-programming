@@ -34,3 +34,45 @@ int main()
     printf("NULL");
     return 0;
 }
+
+//Storing at ending
+#include <stdio.h>
+#include <stdlib.h>
+struct contact
+{
+    long int num;
+    struct contact *next;
+};
+int main() 
+{
+    struct contact *head=NULL,*temp;
+    struct contact *ct1=(struct contact*)malloc(sizeof(struct contact));
+    struct contact *ct2=(struct contact*)malloc(sizeof(struct contact));
+    struct contact *ct3=(struct contact*)malloc(sizeof(struct contact));
+    ct1->num=8956235689;
+    ct2->num=6895326598;
+    ct3->num=9988745625;
+    ct1->next=NULL;
+    ct2->next=NULL;
+    ct3->next=NULL;
+    head=ct1;
+    temp=head;
+    while(temp->next!=NULL)
+        temp=temp->next;
+    temp->next=ct2;
+    temp=head;
+    while(temp->next!=NULL)
+        temp=temp->next;
+    temp->next=ct3;
+    temp=head;
+    while(temp!=NULL)
+    {
+        printf("%ld -> ",temp->num);
+        temp=temp->next;
+    }
+    printf("NULL");
+    free(ct1);
+    free(ct2);
+    free(ct3);
+    return 0;
+}
