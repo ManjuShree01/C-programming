@@ -36,3 +36,41 @@ int main()
     printf("NULL");
     return 0;
 }
+
+//Music
+#include <stdio.h>
+#include <stdlib.h>
+struct music
+{
+    int id;
+    struct music *next;
+    struct music *prev;
+};
+int main() 
+{
+    struct music *head=NULL,*temp;
+    int m[3]={10,20,30};
+    for(int i=0;i<3;i++)
+    {
+        struct music *newn=(struct music*)malloc(sizeof(struct music));
+        newn->id=m[i];
+        newn->next=head;
+        newn->prev=NULL;
+        if(head!=NULL)
+        {
+            head->prev=newn;
+        }
+        head=newn;
+    }
+    temp=head;
+    while(temp!=NULL)
+    {
+        printf("%d",temp->id);
+        temp=temp->next;
+        if(temp!=NULL)
+        {
+            printf("<>");
+        }
+    }
+    return 0;
+}
