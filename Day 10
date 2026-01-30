@@ -74,3 +74,165 @@ int main()
     }
     return 0;
 }
+
+\\train
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Node {
+    char code[5];
+    struct Node *prev, *next;
+};
+
+int main() {
+    struct Node *head = NULL, *tail = NULL, *newNode;
+
+    // Insert A1
+    newNode = (struct Node*)malloc(sizeof(struct Node));
+    strcpy(newNode->code, "A1");
+    newNode->next = newNode->prev = NULL;
+    head = tail = newNode;
+
+    // Insert B2
+    newNode = (struct Node*)malloc(sizeof(struct Node));
+    strcpy(newNode->code, "B2");
+    newNode->next = NULL;
+    newNode->prev = tail;
+    tail->next = newNode;
+    tail = newNode;
+
+    // Insert C3
+    newNode = (struct Node*)malloc(sizeof(struct Node));
+    strcpy(newNode->code, "C3");
+    newNode->next = NULL;
+    newNode->prev = tail;
+    tail->next = newNode;
+    tail = newNode;
+
+    // Display route
+    struct Node* temp = head;
+    while (temp != NULL) {
+        printf("%s", temp->code);
+        if (temp->next != NULL) printf(" <-> ");
+        temp = temp->next;
+    }
+    printf(" <-> NULL\n");
+
+    return 0;
+}
+
+//food
+#include <stdio.h>
+#include <stdlib.h>
+
+struct food {
+    int id;
+    struct food *prev, *next;
+};
+
+int main() {
+    // 1. Initial setup: 101 <-> 102 <-> 104
+    struct food *n1 = (struct food*)malloc(sizeof(struct food));
+    struct food *n2 = (struct food*)malloc(sizeof(struct food));
+    struct food *n4 = (struct food*)malloc(sizeof(struct food));
+
+    n1->id = 101; n2->id = 102; n4->id = 104;
+    struct food *head = n1;
+
+    n1->prev = NULL; n1->next = n2;
+    n2->prev = n1;   n2->next = n4;
+    n4->prev = n2;   n4->next = NULL;
+
+    // 2. Insert 103 at position 3
+    struct food *newNode = (struct food*)malloc(sizeof(struct food));
+    newNode->id = 103;
+
+    struct food *temp = head;
+    // Move to position 2 (the node before position 3)
+    for (int i = 1; i < 2 && temp != NULL; i++) {
+        temp = temp->next;
+    }
+
+    // Insert newNode between temp (102) and temp->next (104)
+    newNode->next = temp->next;
+    newNode->prev = temp;
+    if (temp->next != NULL) {
+        temp->next->prev = newNode;
+    }
+    temp->next = newNode;
+
+    // 3. Move temp to the very end to act as 'tail'
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+
+    // 4. Print results from head to NULL
+    struct food *curr = head;
+    while (curr != NULL) {
+        printf("%d <-> ", curr->id);
+        curr = curr->next;
+    }
+    printf("NULL\n");
+
+    return 0;
+}
+
+//Browser
+#include <stdio.h>
+#include <stdlib.h>
+
+struct browser {
+    int id;
+    struct browser *prev, *next;
+};
+
+int main() {
+    // 1. Setup initial history: 11 <-> 22 <-> 33 <-> 44
+    struct browser *n1 = (struct browser*)malloc(sizeof(struct browser));
+    struct browser *n2 = (struct browser*)malloc(sizeof(struct browser));
+    struct browser *n3 = (struct browser*)malloc(sizeof(struct browser));
+    struct browser *n4 = (struct browser*)malloc(sizeof(struct browser));
+
+    n1->id = 11; n2->id = 22; n3->id = 33; n4->id = 44;
+    struct browser *head = n1;
+
+    n1->prev = NULL; n1->next = n2;
+    n2->prev = n1;   n2->next = n3;
+    n3->prev = n2;   n3->next = n4;
+    n4->prev = n3;   n4->next = NULL;
+
+    // 2. Delete Page ID 33
+    int target = 33;
+    struct browser *temp = head;
+
+    // Traverse to find the node with the target ID
+    while (temp != NULL && temp->id != target) {
+        temp = temp->next;
+    }
+
+    // If found, bridge the gap between temp's neighbors
+    if (temp != NULL) {
+        if (temp->prev != NULL) {
+            temp->prev->next = temp->next; // Link previous to next
+        } else {
+            head = temp->next; // Handle deleting head node
+        }
+
+        if (temp->next != NULL) {
+            temp->next->prev = temp->prev; // Link next back to previous
+        }
+        
+        free(temp); // Clear from memory
+    }
+
+    // 3. Print updated history
+    struct browser *curr = head;
+    while (curr != NULL) {
+        printf("%d <-> ", curr->id);
+        curr = curr->next;
+    }
+    printf("NULL\n");
+
+    return 0;
+}
