@@ -236,3 +236,75 @@ int main() {
 
     return 0;
 }
+
+//Circular singly linked list
+#include <stdio.h>
+#include <stdlib.h>
+struct cntct
+{
+    long int num;
+    struct cntct *link;
+};
+int main()
+{
+    struct cntct *c1=(struct cntct*)malloc(sizeof(struct cntct));
+    struct cntct *c2=(struct cntct*)malloc(sizeof(struct cntct));
+    struct cntct *c3=(struct cntct*)malloc(sizeof(struct cntct));
+    struct cntct *c4=(struct cntct*)malloc(sizeof(struct cntct));
+    c1->num=9865326598;
+    c2->num=6598326598;
+    c3->num=6598743197;
+    c4->num=8956431526;
+    c1->link=c2;
+    c2->link=c3;
+    c3->link=c4;
+    c4->link=c1;
+    struct cntct *head=c1;
+    struct cntct *temp=head;
+    printf("Contact:\n");
+    do
+    {
+        printf("%ld-->",head->num);
+        head=head->link;
+    }while(temp!=head);
+    printf("NULL");
+    return 0;
+}
+
+//Circular doubly linked list
+#include <stdio.h>
+#include <stdlib.h>
+struct cntct
+{
+    long int num;
+    struct cntct *prev,*next;
+};
+int main()
+{
+    struct cntct *c1=(struct cntct*)malloc(sizeof(struct cntct));
+    struct cntct *c2=(struct cntct*)malloc(sizeof(struct cntct));
+    struct cntct *c3=(struct cntct*)malloc(sizeof(struct cntct));
+    struct cntct *c4=(struct cntct*)malloc(sizeof(struct cntct));
+    c1->num=9865326598;
+    c2->num=6598326598;
+    c3->num=6598743197;
+    c4->num=8956431526; 
+    c1->prev=c4;
+    c1->next=c2;
+    c2->prev=c1;
+    c2->next=c3;
+    c3->prev=c2;
+    c3->next=c4;
+    c4->prev=c3;
+    c4->next=c1;
+    struct cntct *head=c1;
+    struct cntct *temp=head;
+    printf("Contact:\n");
+    do
+    {
+        printf("%ld-->",head->num);
+        head=head->next;
+    }while(temp!=head);
+    printf("NULL");
+    return 0;
+}
