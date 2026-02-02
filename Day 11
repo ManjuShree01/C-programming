@@ -186,3 +186,76 @@ int main() {
     isempty();
     return 0;
 }
+
+//Size
+#include <stdio.h>
+#define MAX 5
+int array[MAX];
+int top=-1;
+void push(int value)
+{
+    if(top==MAX-1)
+    {
+        printf("No space left");
+    }
+    else
+    {
+        top++;
+        array[top]=value;
+        printf("The value added is %d.\n",value);
+    }
+}
+void pop()
+{
+    if(top==-1)
+    {
+        printf("Stack is empty.");
+    }
+    else
+    {
+        printf("Top value b4 popping is %d.\n",array[top]);
+        top--;
+        printf("Top value after popping is %d.\n",array[top]);
+    }
+}
+void peak()
+{
+    if(top==-1)
+    {
+        printf("Stack is empty.");
+    }
+    else
+    {
+        printf("Peak value is %d.\n",array[top]);
+    }
+}
+void isempty()
+{
+    if(top==-1)
+    {
+        printf("Stack is empty.\n");
+    }
+    else
+    {
+        printf("Stack is not empty.\n");
+    }
+}
+void size()
+{
+    printf("Stack size is %d.\n",top+1);
+}
+int main() {
+    size();
+    isempty();
+    push(10);
+    size();
+    push(20);
+    push(30);
+    peak();
+    size();
+    pop();
+    peak();
+    pop();
+    isempty();
+    return 0;
+}
