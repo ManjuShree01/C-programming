@@ -259,3 +259,69 @@ int main() {
     isempty();
     return 0;
 }
+
+//Queue
+#include <stdio.h>
+#define size 5
+int top=-1;
+int bottom=-1;
+int array[size];
+void enqueue(int value)
+{
+    if(bottom==size-1)
+    {
+        printf("Queue is full.\n");
+    }
+    else
+    {
+        if(top==-1)
+        {
+            top=0;
+        }
+        bottom++;
+        array[bottom]=value;
+        printf("%d is the value added in queue.\n",array[bottom]);
+    }
+}
+void dequeue()
+{
+    if(top==-1||top>bottom)
+    {
+        printf("No data in Queue.\n");
+    }
+    else
+    {
+        printf("Deleted value: %d\n",array[top]);
+        top++;
+    }
+}
+void peak()
+{
+    if(top == -1||top>bottom)
+    {
+        printf("No data in Queue.\n");
+    }
+    else
+    {
+        printf("Peak value: %d\n",array[top]);
+    }
+}
+void isempty()
+{
+    if(top == -1||top>bottom)
+    {
+        printf("No data in Queue.\n");
+    }
+    else
+    {
+        printf("Queue has value.\n");
+    }
+}
+int main() {
+    enqueue(10);
+    enqueue(20);
+    dequeue();
+    peak();
+    isempty();
+    return 0;
+}
