@@ -25,3 +25,45 @@ int main() {
     push(60);
     return 0;
 }
+
+//Pop
+#include <stdio.h>
+#define size 5
+int array[size];
+int top=-1;
+void push(int value)
+{
+    if(top==size-1)
+    {
+        printf("No space left");
+    }
+    else
+    {
+        top++;
+        array[top]=value;
+        printf("The value added is %d.\n",value);
+    }
+}
+void pop()
+{
+    if(top==-1)
+    {
+        printf("Stack is empty.");
+    }
+    else
+    {
+        printf("Top value b4 popping is %d.\n",array[top]);
+        top--;
+        printf("Top value after popping is %d.\n",array[top]);
+    }
+}
+int main() {
+    push(10);
+    push(20);
+    push(30);
+    pop();
+    pop();
+    pop();
+    pop();
+    return 0;
+}
