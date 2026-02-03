@@ -47,20 +47,22 @@ int main() {
 
 //Undo operation
 #include <stdio.h>
-int undoStack[10], top = -1;
+int undo[10], top = -1;
 void push(int actionID) {
-    undoStack[++top] = actionID;
+    undo[++top] = actionID;
     printf("Action %d saved.\n", actionID);
 }
 void pop() {
     if (top == -1) printf("Nothing to undo.\n");
-    else printf("Undo performed. Removed action %d\n", undoStack[top--]);
+    else printf("Undo performed. Removed action %d\n", undo[top--]);
 }
 void peek() {
-    printf("Last action: %d\n", undoStack[top]);
+    printf("Last action: %d\n", undo[top]);
 }
 int main() {
-    push(1); push(2); push(3); // Type A, B, C
+    push(1);
+    push(2); 
+    push(3); // Type A, B, C
     pop();                     // Undo C
     peek();                    // Shows B
     return 0;
