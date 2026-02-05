@@ -103,3 +103,27 @@ int main() {
     printf("\nTotal No. of Leaves: %d",count);
     return 0;
 }
+
+//2 cities
+#include <stdio.h>
+int main() 
+{
+    int n;
+    printf("Enter number of cities:\n");
+    scanf("%d",&n);
+    int mat[n][n];
+    printf("Adjacency matrix:\n");
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            scanf("%d",&mat[i][j]);
+        }
+    }
+    printf("\nEnter 2 cities A and B:\n");
+     int a,b;
+    scanf("%d %d",&a,&b);
+    if(mat[a-1][b-1]==1)printf("Connected");
+    else printf("Not Connected");
+    return 0;
+}
