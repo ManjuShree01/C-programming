@@ -1,0 +1,7 @@
+to find 
+parent - (i-1)/2
+left child = 2i+1
+right child = 2i-2
+
+min heap->left side min val
+max heap->left side max val
