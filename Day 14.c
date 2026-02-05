@@ -57,3 +57,49 @@ int main() {
     postorder(root);
     return 0;
 }
+
+//Leaf node count
+#include <stdio.h>
+#include <stdlib.h>
+int count=0;
+struct node 
+{
+    int data;
+    struct node* left;
+    struct node* right;
+};
+//creating node
+struct node* createnode(int value)
+{
+    struct node*newnode=(struct node*)malloc(sizeof(struct node));
+    newnode->data=value;
+    newnode->left=NULL;
+    newnode->right=NULL;
+}
+
+void postorder(struct node* root)
+{
+    if(root==NULL) return;
+    if(root->left==NULL&&root->right==NULL)count++;
+    postorder(root->left);
+    postorder(root->right);
+    printf("%d ",root->data);
+}
+int main() {
+    //adding data
+    struct node* root=createnode(10);
+    //adding child data for root
+    root->left=createnode(20);
+    root->right=createnode(30);
+    //adding child for 1st parents
+    root->left->left=createnode(40);
+    root->left->right=createnode(50);
+    
+    root->right->left=createnode(60);
+    root->right->right=createnode(70);
+    
+    printf("Postorder Traversal: ");
+    postorder(root);
+    printf("\nTotal No. of Leaves: %d",count);
+    return 0;
+}
