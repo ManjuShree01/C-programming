@@ -27,3 +27,32 @@ int main()
   else printf("Price available");
   return 0;
 }
+
+//Binary search
+#include <stdio.h>
+int binary(int a[],int n,int key)
+{
+    int low=0,high=n-1;
+    while(low<=high)
+    {
+        int mid=(high+low)/2;
+        if(a[mid]==key)
+            return mid;
+        else if(a[mid]<key)
+            low=mid+1;
+        else
+            high=mid-1;
+    }
+}
+int main() {
+    int a[]={1,2,3,4,5,6};
+    int n=6,key=4;
+    int res=binary(a,n,key);
+    if(res!=-1)
+    {
+        printf("Element is found at index %d",res);
+    }
+    else
+        printf("Element is not found");
+    return 0;
+}
