@@ -127,3 +127,71 @@ int main()
     else printf("Not Connected");
     return 0;
 }
+
+//bfs and dfs
+#include <stdio.h>
+
+int matrix[20][20], visited[20], n;
+
+// --- BFS Implementation ---
+void bfs(int s) {
+    int queue[20], front = 0, rear = 0;
+    int visited_bfs[20] = {0};
+
+    queue[rear++] = s;
+    visited_bfs[s] = 1;
+
+    printf("BFS Traversal: ");
+    while (front < rear) {
+        int curr = queue[front++];
+        printf("%d ", curr);
+
+        for (int i = 0; i < n; i++) {
+            if (matrix[curr][i] == 1 && !visited_bfs[i]) {
+                queue[rear++] = i;
+                visited_bfs[i] = 1;
+            }
+        }
+    }
+    printf("\n");
+}
+
+// --- DFS Implementation ---
+void dfs(int s) {
+    visited[s] = 1;
+    printf("%d ", s);
+
+    for (int i = 0; i < n; i++) {
+        if (matrix[s][i] == 1 && !visited[i]) {
+            dfs(i);
+        }
+    }
+}
+
+int main() {
+    int s;
+
+    printf("Enter number of vertices: ");
+    scanf("%d", &n);
+
+    printf("Enter adjacency matrix:\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    printf("Enter starting vertex S: ");
+    scanf("%d", &s);
+
+    // Run BFS
+    bfs(s);
+
+    // Reset visited array and run DFS
+    for (int i = 0; i < n; i++) visited[i] = 0;
+    printf("DFS Traversal: ");
+    dfs(s);
+    printf("\n");
+
+    return 0;
+}
